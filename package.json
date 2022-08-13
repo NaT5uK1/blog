@@ -1,8 +1,9 @@
 {
-  "name": "tailwind-nextjs-starter-blog",
+  "name": "blog-nat5uk1",
   "version": "1.5.6",
   "private": true,
   "scripts": {
+    "new": "node ./scripts/compose.js",
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
     "build": "next build && node ./scripts/generate-sitemap",
