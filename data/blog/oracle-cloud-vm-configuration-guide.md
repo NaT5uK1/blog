@@ -6,7 +6,8 @@ draft: false
 summary: Based on Ubuntu 22.04
 images: []
 layout: PostSimple
-canonicalUrl:
+canonicalUrl: https://blog-nat5uk1.vercel.app/blog/react-performance-optimization
+authors: ['default']
 ---
 
 ## 创建实例

@@ -6,6 +6,8 @@ draft: false
 summary: React常见的性能优化手段
 images: []
 layout: PostSimple
+canonicalUrl: https://blog-nat5uk1.vercel.app/blog/oracle-cloud-vm-configuration-guide
+authors: ['default']
 ---
 
 ## 序言
