@@ -72,6 +72,23 @@ ssh ubuntu@host
 
 - 提示将 host 加入`known_hosts`中按 y
 
+## 防止 SSH 会话超时
+
+`/etc/ssh/sshd_config`
+
+```shell
+ClientAliveInterval 120  // 超时时间，10s
+ClientAliveCountMax 720  // 超时次数，0次
+```
+
+如果客户端处于非活动状态 120 秒，这将使服务器向客户端发送一个空数据包，共发送 720 次。 如果服务端向客户端发送消息达到此阈值，SSHD 将断开客户端的连接，所以 timeout interval = ClientAliveInterval \* ClientAliveCountMax
+
+- 重启 sshd.service
+
+```shell
+sudo systemctl restart sshd.service
+```
+
 ## 更新 apt
 
 ```shell
@@ -296,10 +313,10 @@ sudo ufw deny 8080/tcp
 - 开放所有端口
 
 ```shell
-iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
-iptables -F
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -F
 ```
 
 ## 终端美化
@@ -449,6 +466,14 @@ sudo find / -name libssl.so.1.1
 sudo ln -s /usr/local/lib/libssl.so.1.1 /usr/lib/libssl.so.1.1
 sudo find / -name libcrypto.so.1.1
 sudo ln -s /usr/local/lib/libcrypto.so.1.1 /usr/lib/libcrypto.so.1.1
+```
+
+## GCC
+
+- 安装
+
+```shell
+sudo apt install build-essential
 ```
 
 ## 时区
