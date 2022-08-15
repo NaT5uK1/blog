@@ -136,10 +136,10 @@ WantedBy=multi-user.target
 systemctl enable /etc/systemd/system/shadowsocks-server.service
 ```
 
-- 使系统重新加载单元文件
+- 重新加载单元文件
 
 ```shell
-sysctl --system
+systemctl daemon-reload
 ```
 
 - 开启服务
@@ -148,14 +148,20 @@ sysctl --system
 systemctl start shadowsocks-server
 ```
 
-- 查看服务状态
-
-```shell
-systemctl status shadowsocks-server
-```
-
 - 关闭服务
 
 ```shell
 systemctl stop shadowsocks-server
+```
+
+- 重启服务
+
+```shell
+systemctl restart shadowsocks-server
+```
+
+- 查看服务状态
+
+```shell
+systemctl status shadowsocks-server
 ```
