@@ -112,7 +112,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   background: '#261D1E',
   foreground: '#F5E6C4',
-  primaryColor: '#F64404',
+  primary: '#F64404',
 }
 
 const themeSlice = createSlice({
@@ -155,7 +155,7 @@ export default themeSlice.reducer
 import { useSelector } from 'react-redux'
 
 export default () => {
-  const { background, foreground, primaryColor } = useSelector((state) => state.theme)
+  const { background, foreground, primary } = useSelector((state) => state.theme)
 
   return (
     <div
@@ -171,7 +171,7 @@ export default () => {
       <button
         style={{
           backgroundColor: foreground,
-          color: primaryColor,
+          color: primary,
           borderColor: foreground,
           fontSize: '2rem',
           lineHeight: '2.5rem',
@@ -257,12 +257,12 @@ import { themeChanged } from '../features/themeSlice.js'
 const fakeTheme = {
   background: '#F7F6DC',
   foreground: '#B1D7B4',
-  primaryColor: '#7FB77E',
+  primary: '#7FB77E',
 }
 
 export default () => {
   const dispatch = useDispatch()
-  const { background, foreground, primaryColor } = useSelector((state) => state.theme)
+  const { background, foreground, primary } = useSelector((state) => state.theme)
 
   const handleClick = () => {
     dispatch(themeChanged(fakeTheme))
@@ -282,7 +282,7 @@ export default () => {
       <button
         style={{
           backgroundColor: foreground,
-          color: primaryColor,
+          color: primary,
           fontSize: '2rem',
           lineHeight: '2.5rem',
           padding: '10px',
@@ -304,7 +304,7 @@ export default () => {
     "payload": {
         "background": "#F7F6DC",
         "foreground": "#B1D7B4",
-        "primaryColor": "#7FB77E"
+        "primary": "#7FB77E"
     }
 }
 ```
