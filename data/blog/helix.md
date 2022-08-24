@@ -166,7 +166,6 @@ hx ~/.config/helix/config.toml
 
 ```toml
 theme = "tokyonight"
-
 ```
 
 回到 Normal 模式，`:config-reload`命令重新加载配置
