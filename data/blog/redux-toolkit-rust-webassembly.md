@@ -1,5 +1,5 @@
 ---
-title: 使用Redux Toolkit编写现代Redux应用逻辑与WebAssembly实战
+title: 使用Redux Toolkit编写现代Redux应用与WebAssembly实战
 date: '2022-08-22'
 tags: ['React', 'Redux', 'Frontend', 'WebAssembly', 'Rust']
 draft: false
@@ -59,15 +59,11 @@ pnpm i @reduxjs/toolkit react-redux
 
 `src/App.jsx`
 
-```react
-import "./App.css"
+```js
+import './App.css'
 
 function App() {
-  return (
-    <div className="App">
-
-    </div>
-  )
+  return <div className="App"></div>
 }
 
 export default App
@@ -155,23 +151,21 @@ export default themeSlice.reducer
 
 `src/components/Card.jsx`
 
-```react
-import { useSelector } from "react-redux"
+```js
+import { useSelector } from 'react-redux'
 
 export default () => {
-  const { background, foreground, primaryColor } = useSelector(
-    (state) => state.theme
-  )
+  const { background, foreground, primaryColor } = useSelector((state) => state.theme)
 
   return (
     <div
       style={{
         backgroundColor: background,
-        width: "50%",
-        height: "50%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        width: '50%',
+        height: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <button
@@ -179,9 +173,9 @@ export default () => {
           backgroundColor: foreground,
           color: primaryColor,
           borderColor: foreground,
-          fontSize: "2rem",
-          lineHeight: "2.5rem",
-          padding: "10px",
+          fontSize: '2rem',
+          lineHeight: '2.5rem',
+          padding: '10px',
         }}
       >
         Change Theme
@@ -195,9 +189,9 @@ export default () => {
 
 `src/App.jsx`
 
-```react
-import "./App.css"
-import Card from "./components/Card"
+```js
+import './App.css'
+import Card from './components/Card'
 
 function App() {
   return (
@@ -233,15 +227,15 @@ export default store
 
 `src/main.jsx`
 
-```react
-import React from "react"
-import ReactDOM from "react-dom/client"
-import { Provider } from "react-redux"
-import store from "./store"
-import App from "./App"
-import "./index.css"
+```js
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import store from './store'
+import App from './App'
+import './index.css'
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
@@ -256,21 +250,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 `src/components/Card.jsx`
 
-```react
-import { useSelector, useDispatch } from "react-redux"
-import { themeChanged } from "../features/themeSlice.js"
+```js
+import { useSelector, useDispatch } from 'react-redux'
+import { themeChanged } from '../features/themeSlice.js'
 
 const fakeTheme = {
-  background: "#F7F6DC",
-  foreground: "#B1D7B4",
-  primaryColor: "#7FB77E",
+  background: '#F7F6DC',
+  foreground: '#B1D7B4',
+  primaryColor: '#7FB77E',
 }
 
 export default () => {
   const dispatch = useDispatch()
-  const { background, foreground, primaryColor } = useSelector(
-    (state) => state.theme
-  )
+  const { background, foreground, primaryColor } = useSelector((state) => state.theme)
 
   const handleClick = () => {
     dispatch(themeChanged(fakeTheme))
@@ -280,20 +272,20 @@ export default () => {
     <div
       style={{
         backgroundColor: background,
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <button
         style={{
           backgroundColor: foreground,
           color: primaryColor,
-          fontSize: "2rem",
-          lineHeight: "2.5rem",
-          padding: "10px",
+          fontSize: '2rem',
+          lineHeight: '2.5rem',
+          padding: '10px',
         }}
         onClick={handleClick}
       >
@@ -546,16 +538,13 @@ export default themeSlice.reducer
 
 `src/components/Card.jsx`
 
-```react
-import { useSelector, useDispatch } from "react-redux"
-import { getRandomColor } from "../features/themeSlice.js"
-
+```js
+import { useSelector, useDispatch } from 'react-redux'
+import { getRandomColor } from '../features/themeSlice.js'
 
 export default () => {
   const dispatch = useDispatch()
-  const { background, foreground, primary } = useSelector(
-    (state) => state.theme
-  )
+  const { background, foreground, primary } = useSelector((state) => state.theme)
 
   const handleClick = () => {
     dispatch(getRandomColor())
@@ -565,11 +554,11 @@ export default () => {
     <div
       style={{
         backgroundColor: background,
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <button
@@ -577,9 +566,9 @@ export default () => {
           backgroundColor: foreground,
           color: primary,
           borderColor: foreground,
-          fontSize: "2rem",
-          lineHeight: "2.5rem",
-          padding: "10px",
+          fontSize: '2rem',
+          lineHeight: '2.5rem',
+          padding: '10px',
         }}
         onClick={handleClick}
       >
