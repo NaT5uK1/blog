@@ -489,3 +489,9 @@ date -R
 ```shell
 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
+
+## V2ray 一键脚本
+
+```shell
+bash <(curl -s -L https://raw.githubusercontent.com/233boy/v2ray/master/install.sh)
+```
