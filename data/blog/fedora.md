@@ -87,6 +87,16 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
   reboot
   ```
 
+### 添加窗口最大化最小化按钮
+
+- 安装优化组件
+
+```shell
+sudo dnf install -y gnome-tweaks
+```
+
+- super->搜索"优化"->窗口标题栏->标题栏按钮
+
 ### 安装 AppImageLauncher
 
 由于很多常用应用不会发布 rpm 包，所以通常使用 AppImage 文件安装应用，AppImageLauncher 是很好的工具。
@@ -179,6 +189,18 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
   ```
 
 - 重启
+
+### 安装音视频插件
+
+如果有看直播的需求，默认情况下无法从浏览器打开直播流，需要安装插件：
+
+```SHELL
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+
+sudo dnf install lame\* --exclude=lame-devel
+
+sudo dnf group upgrade --with-optional Multimedia
+```
 
 ## 开发配置
 
