@@ -91,9 +91,9 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 - 安装优化组件
 
-```shell
-sudo dnf install -y gnome-tweaks
-```
+  ```SHELL
+  sudo dnf install -y gnome-tweaks
+  ```
 
 - super->搜索"优化"->窗口标题栏->标题栏按钮
 
@@ -236,3 +236,71 @@ sudo dnf group upgrade --with-optional Multimedia
     export http_proxy=http://127.0.0.1:7890
     export https_proxy=http://127.0.0.1:7890
     ```
+
+### Android 开发
+
+#### OpenJDK
+
+- 查找包名
+
+  ```shell
+  dnf search openjdk
+  ```
+
+- 安装最新版本
+
+  ```shell
+  sudo dnf install java-latest-openjdk.x86_64
+  ```
+
+- 添加到环境变量
+
+  ```shell
+  export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-19.0.1.0.10-2.rolling.fc37.x86_64"
+  ```
+
+#### Android SNK and NDK
+
+- [官网](https://developer.android.com/studio#command-tools)查找 commandlinetools 对应版本并下载安装
+
+  ```shell
+  cd ~/Downloads
+
+  wget https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip
+
+  mv commandlinetools-linux-9123335_latest.zip cmdline-tools.zip
+  unzip cmdline-tools.zip
+  cd cmdline-tools
+  mkdir latest
+  mv bin latest/
+  mv lib latest/
+  mv NOTICE.txt latest/
+  mv source.properties latest/
+  cd ..
+  mkdir ~/.android # You can use another location for your SDK but I prefer using ~/.android
+  mv cmdline-tools ~/.android
+  ```
+
+- 添加环境变量
+
+  ```shell
+  export ANDROID_HOME="$HOME/.android"
+  ```
+
+- 使用 sdkmanager 安装 SDK
+
+  ```shell
+  cd ~/.android/cmdline-tools/latest/bin
+  ./sdkmanager --list #查询对应工具版本
+  ./sdkmanager "platforms;android-33" "platform-tools" "ndk;25.1.8937393" "build-tools;33.0.1"
+  ```
+
+#### 环境变量
+
+- 添加到`~/.zshrc`
+
+  ```shell
+  export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-19.0.1.0.10-2.rolling.fc37.x86_64"
+  export ANDROID_HOME="$HOME/.android"
+  export NDK_HOME="$ANDROID_HOME/ndk/25.1.8937393"
+  ```
