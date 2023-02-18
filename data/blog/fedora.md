@@ -180,15 +180,36 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
   ```
 
   ```shell
-  ZSH_THEME="agnoster"
   plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
   ```
 
-  ```shell
-  source ~/.zshrc
-  ```
+- 安装主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
-- 重启
+  - 下载主题仓库
+
+    ```shell
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    ```
+
+  - 下载字体[MesloLGS NF Regular.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf)、[MesloLGS NF Bold.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold.ttf)、[MesloLGS NF Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Italic.ttf)、[MesloLGS NF Bold Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf)，并安装
+
+  - 在终端【配置文件首选项】中设置字体为 MesloLGS NF
+
+  - 设置主题
+
+    ```shell
+    sudo vi ~/.zshrc
+    ```
+
+    ```shell
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+    ```
+
+  - 根据向导配置完成即可
+
+    ```shell
+    p10k configure
+    ```
 
 ### 安装音视频插件
 
