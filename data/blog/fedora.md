@@ -272,6 +272,12 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 + [换源](https://nat5uk1.vercel.app/blog/change-origin-of-devtools)
 
++ 安装openssl-devel
+
+  ```shell
+  sudo dnf install openssl-devel
+  ```
+
 ### VSCode
 
 + 添加rpm仓库
