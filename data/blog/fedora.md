@@ -119,13 +119,13 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
   ```shell
   tar -zxvf Typora-linux-x64.tar.gz
-  mv ~/Downloads/bin/Typora-linux-x64 /opt
+  sudo mv ~/Downloads/bin/Typora-linux-x64 /opt
   ```
 
 - 添加快捷方式到菜单
 
   ```shell
-  vi /usr/share/applications/typora.desktop
+  sudo vi /usr/share/applications/typora.desktop
   ```
 
   ```shell
@@ -145,7 +145,7 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 - 添加到环境变量
 
   ```shell
-  sudo vi ~/.zshrc
+  vi ~/.zshrc
   ```
 
   ```shell
@@ -163,7 +163,7 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 - 安装 oh-my-zsh
 
   ```shell
-  sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   ```
 
 - 安装 zsh 插件
@@ -176,12 +176,14 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 - 配置 oh-my-zsh
 
   ```shell
-  sudo vi ~/.zshrc
+  vi ~/.zshrc
   ```
 
   ```shell
   plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
   ```
+
+- 重启
 
 - 安装主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
@@ -219,18 +221,6 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
     p10k configure
     ```
 
-### 安装音视频插件
-
-如果有看直播的需求，默认情况下无法从浏览器打开直播流，需要安装插件：
-
-```SHELL
-sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
-
-sudo dnf install lame\* --exclude=lame-devel
-
-sudo dnf group upgrade --with-optional Multimedia
-```
-
 ## 开发配置
 
 ### 修改 GitHub host
@@ -265,6 +255,73 @@ sudo dnf group upgrade --with-optional Multimedia
     export http_proxy=http://127.0.0.1:7890
     export https_proxy=http://127.0.0.1:7890
     ```
+
+### Rust
+
++ 安装
+
+  ```shell
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  ```
+
++ 刷新环境变量
+
+  ```shell
+  source "$HOME/.cargo/env"
+  ```
+
++ [换源](https://nat5uk1.vercel.app/blog/change-origin-of-devtools)
+
+### VSCode
+
++ 添加rpm仓库
+
+  ```shell
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+  ```
+
++ 更新软件源
+
+  ```shell
+  dnf check-update
+  ```
+
++ 安装
+
+  ```shell
+  sudo dnf install -y code
+  ```
+
+### Node.js
+
++ nvm
+
+  ```shell
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  source ~/.zshrc
+  ```
+
++ node
+
+  ```shell
+  nvm install node
+  ```
+
++ nrm
+
+  ```shell
+  npm i -g nrm
+  nrm use taobao
+  ```
+
++ pnpm
+
+  ```shell
+  npm i -g pnpm
+  ```
+
+  
 
 ### Android 开发
 
