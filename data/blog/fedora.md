@@ -109,6 +109,10 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
   sudo dnf install -y ~/Downloads/appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
   ```
 
+### 安装 gnome 扩展
+
+- 访问[gnome 扩展官网](https://extensions.gnome.org/)
+
 ### 安装 Typora
 
 - 下载二进制压缩文件
@@ -258,21 +262,21 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 ### Rust
 
-+ 安装
+- 安装
 
   ```shell
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   ```
 
-+ 刷新环境变量
+- 刷新环境变量
 
   ```shell
   source "$HOME/.cargo/env"
   ```
 
-+ [换源](https://nat5uk1.vercel.app/blog/change-origin-of-devtools)
+- [换源](https://nat5uk1.vercel.app/blog/change-origin-of-devtools)
 
-+ 安装openssl-devel
+- 安装 openssl-devel
 
   ```shell
   sudo dnf install openssl-devel
@@ -280,20 +284,20 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 ### VSCode
 
-+ 添加rpm仓库
+- 添加 rpm 仓库
 
   ```shell
   sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
   sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
   ```
 
-+ 更新软件源
+- 更新软件源
 
   ```shell
   dnf check-update
   ```
 
-+ 安装
+- 安装
 
   ```shell
   sudo dnf install -y code
@@ -301,33 +305,31 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 ### Node.js
 
-+ nvm
+- nvm
 
   ```shell
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
   source ~/.zshrc
   ```
 
-+ node
+- node
 
   ```shell
   nvm install node
   ```
 
-+ nrm
+- nrm
 
   ```shell
   npm i -g nrm
   nrm use taobao
   ```
 
-+ pnpm
+- pnpm
 
   ```shell
   npm i -g pnpm
   ```
-
-  
 
 ### Android 开发
 
